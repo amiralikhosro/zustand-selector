@@ -1,4 +1,5 @@
 import { Box, Button, Text } from "@mantine/core";
+import shallow from "zustand/shallow";
 
 import { useStore } from "./store";
 
@@ -48,7 +49,7 @@ const SecondValue = () => {
 };
 
 const NumbersValue = () => {
-  const numbers = useStore((state) => state.numbers);
+  const numbers = useStore((state) => state.numbers, shallow);
   return (
     <Text size="xl" p={5}>
       Numbers: {numbers.join(", ")}
